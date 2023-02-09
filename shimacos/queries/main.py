@@ -82,7 +82,7 @@ def main(config: DictConfig) -> None:
             jobs.remove(future)
 
         for version in ["067", "069"]:
-            for sql_name in ["dataset", "sampled_dataset"]:
+            for sql_name in ["dataset"]:
                 config.version = version
                 config.params.sql_name = sql_name
                 bq.create_dataset(config.params.dataset_id)
@@ -91,6 +91,23 @@ def main(config: DictConfig) -> None:
                 )
                 logger.info(query)
                 jobs.append(executor.submit(bq.execute_query, query))
+        for future in as_completed(jobs):
+            future.result()
+            jobs.remove(future)
+
+        for version in ["067", "069"]:
+            for sql_name in ["sampled_dataset"]:
+                config.version = version
+                config.params.sql_name = sql_name
+                bq.create_dataset(config.params.dataset_id)
+                query = render_template(
+                    f"./queries/{version}/{sql_name}.sql", config.params
+                )
+                logger.info(query)
+                jobs.append(executor.submit(bq.execute_query, query))
+        for future in as_completed(jobs):
+            future.result()
+            jobs.remove(future)
 
     else:
         query = render_template(
