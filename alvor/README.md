@@ -5,8 +5,9 @@
 
 <img width="443" alt="Screenshot 2023-02-08 at 18 33 59" src="https://user-images.githubusercontent.com/41992707/217607743-d32fa8a0-a926-4ce1-98a4-a3ff016b9367.png">
 
+## 1. Get input data.
 
-## 1. Input data. <br> Place three public Kaggle Datasets into the "input" folder of current repository:
+### 1.1. Get Competition Data. <br>Place three public Kaggle Datasets into the **"alvor/input"** folder of current repository:
 
 1. [OTTO Chunk Data in Parquet Format](https://www.kaggle.com/datasets/columbia2131/otto-chunk-data-inparquet-format) by [colum2131
 ](https://www.kaggle.com/columbia2131)
@@ -19,14 +20,10 @@ Directory structure should look like this:
 
 <img width="335" alt="tree-1" src="https://user-images.githubusercontent.com/41992707/215167246-85bb0e01-a17c-4b88-80ef-f68f05a6b9be.png">
 
-## 2. Calculate Co-Visitation Matrices
+### 1.2. Get Feature Engineering Data. 
 
-Run this [Kaggle notebook](https://www.kaggle.com/code/allvor/co-matrices-maker) **twice** to calculate 5 co-visitation matrices as follows:
-
-### 2.1. Prepare co-visitation matrices for training and validation
-
-Run **Version-12** of the notebook. Ready output files can be downloaded from the **Version-10** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices).
-Put the output files
+#### 1.2.1.
+Place the files with co-visitation matrices for training and validation
 ```
 cm_30_30_012_012_0_v11m_0.pqt
 cm_30_30_012_012_0_v21k_0.pqt
@@ -34,12 +31,13 @@ cm_30_30_012_012_0_v21m_0.pqt
 cm_30_30_012_012_3_v31m_0.pqt
 cm_30_30_012_12_0_v51ha_0.pqt
 ```
-to the “matrices” folder of the repository
+from the **Version-10** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices) into the **“alvor/matrices”** folder of the repository
 
-### 2.2. Prepare co-visitation matrices for prediction
+(If you want to reproduce these files, you need to run **Version-12** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/co-matrices-maker))
 
-Run **Version-13** of the notebook. Ready output files can be downloaded from the **Version-11** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices).
-Put the output files
+#### 1.2.2.
+
+Place the files with co-visitation matrices for prediction
 ```
 cm_30_30_012_012_0_v11m_1.pqt
 cm_30_30_012_012_0_v21k_1.pqt
@@ -47,68 +45,57 @@ cm_30_30_012_012_0_v21m_1.pqt
 cm_30_30_012_012_3_v31m_1.pqt
 cm_30_30_012_12_0_v51ha_1.pqt
 ```
-to the “matrices” folder of the repository
+from the **Version-11** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices) into the **“alvor/matrices”** folder of the repository
 
-## 3. Get embeddings from Matrix Factorization 
+(If you want to reproduce these files, you need to run **Version-13** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/co-matrices-maker))
 
-### 3.1 Prepare input data
+#### 1.2.3.
 
-Run the [Kaggle notebook](https://www.kaggle.com/code/allvor/otto-prepare-shifts) to get 4 output files:
-```
-train_pairs.parquet
-valid_pairs.parquet
-train_pairs_pub2_1.parquet
-valid_pairs_pub2_1.parquet
-```
-Ready output files can be found: <br> in the **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) (files 1 and 2)
-<br> and in the **Version-3** of the same [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) (files 3 and 4).
-<br> You don't need to download them. You need them only to run next Kaggle Notebooks.
-
-### 3.2. Get first embeddings version
-
-Run **Version-3** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/ottoshiftskernel/notebook)
-(it needs **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) to run).
-The output file 
+Place the file with matrix factorization embeddings 
 ```
 emb_32_1_sh1_pub.npy
 ```
-can be downloaded from the **Version-3** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshiftsoutput/versions/3) 
-<br> Place this output file into the "matrices" folder of the repository.
+from the **Version-3** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshiftsoutput/versions/3) 
+into the **"alvor/matrices"** folder of the repository.
 
-### 3.3. Get second embeddings version
+(If you want to reproduce this file, you need to run **Version-3** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/ottoshiftskernel/notebook);
+and it needs **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) to run)
 
-Run **Version-6** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/ottoshiftskernel/notebook)
-(it needs **Version-3** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) to run).
-The output file 
+#### 1.2.4.
+
+Place the file with matrix factorization embeddings
 ```
 emb_32_1_sh2_pub.npy
 ```
-can be downloaded from the **Version-6** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshiftsoutput/versions/6) 
-<br> Place this output file into the "matrices" folder of the repository.
+from the **Version-6** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshiftsoutput/versions/6) 
+into the **"alvor/matrices"** folder of the repository.
 
+(If you want to reproduce this file, you need to run **Version-6** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/ottoshiftskernel/notebook);
+and it needs **Version-3** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottoshifts) to run)
 
-## 4. Get Word2Vec embeddings
+#### 1.2.5.
 
-### 4.1. Get first Word2Vec embeddings version
-
-Run **Version-3** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/word2vec-model-training-and-submission-0-533).
-The output file
+Place the file with word2vec embeddings
 ```
 w2v.npy
 ```
-can be downloaded from the **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottow2vembs/versions/1).
-<br> Place this output file into the "matrices" folder of the repository.
+from the **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottow2vembs/versions/1)
+into the **"alvor/matrices"** folder of the repository.
 
-### 4.2. Get second Word2Vec embeddings version
+(If you want to reproduce this file, you need to run **Version-3** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/word2vec-model-training-and-submission-0-533))
 
-Run the local Jupyter notebook from the repository:
-```
-w2v.ipynb
-``` 
-As a result, the output file of the notebook will be placed into the "matrices" folder of the repository:
+
+#### 1.2.6.
+
+Place the file with word2vec embeddings
 ```
 w2v_100.npy
 ```
+from the **Version-1** of the [Dataset](https://www.kaggle.com/datasets/allvor/alvorottow2v100)
+into the **"alvor/matrices"** folder of the repository.
+
+(If you want to reproduce this file, you need to run the local Jupyter notebook **alvor/w2v.ipynb** from the current repository.
+
 
 ## 5. Feature engineering
 
