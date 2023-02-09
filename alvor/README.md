@@ -97,21 +97,13 @@ into the **"alvor/matrices"** folder of the repository.
 (If you want to reproduce this file, you need to run the local Jupyter notebook **alvor/w2v.ipynb** from the current repository.
 
 
-## 5. Feature engineering
+## 2. Feature engineering
 
-Run **twice** each of the respository notebooks
+Run the respository notebook
 ```
-FE_sessions.ipynb
-FE_items.ipynb
-FE_aids2sessions.ipynb
+alvor/FE.ipynb
 ```
-as follows: 
-
-one time with option **MODE = 0** in the second cell 
-
-and one time with option **MODE = 1** in the second sell.
-
-As a result, output files will be placed into the "feats" folder of the repository:
+As a result, output files will be placed into the "alvor/feats" folder of the repository:
 ```
 FE_sessions_0.pqt
 FE_sessions_1.pqt
@@ -121,7 +113,7 @@ FE_aids2sessions_0.pqt
 FE_aids2sessions_1.pqt
 ```
 
-## 6. Prepare training and prediction dataframes
+## 3. Prepare training and prediction dataframes
 
 Run the Jupyter Notebook from the current repository:
 ```
@@ -146,9 +138,9 @@ Now the repository's directory structure should look like this:
 
 <img width="350" alt="Screenshot 2023-02-01 at 13 27 42" src="https://user-images.githubusercontent.com/41992707/216042483-86129206-417e-496c-8ff8-b01ca10e4583.png">
 
-## 7. Train models for .596 submission
+## 4. Train models for .596 submission
 
-### 7.1. Train models
+### 4.1. Train models
 
 **(!) You already have trained models files in "models" folder if you don't want to re-train them. Otherwise:**
 
@@ -164,7 +156,7 @@ As a result, output files will be placed into the "models" folder of the reposit
 
 (file names could contain slightly different numbers)
 
-### 7.2. Prepare raw predictions and submission
+### 4.2. Prepare raw predictions and submission
 
 Run Jupyter Notebook
 ```
@@ -188,9 +180,9 @@ and a file with the list of my candidates (You can download it from **Version-1*
 alvor_candidates_big.parquet
 ```
 
-## 8. Add BPR features and Bigram features from my teammate @sirius81 to improve my model 0.596 -> 0.599
+## 5. Add BPR features and Bigram features from my teammate @sirius81 to improve my model 0.596 -> 0.599
 
-### 8.1.
+### 5.1.
 
 [sirius](https://www.kaggle.com/sirius81) has code to calculate BPR features and Bigram features, so I provided him with 2 files from the previous section:
 ```
@@ -199,7 +191,7 @@ alvor_candidates_big.parquet
 ```
 and he was so kind to calculate those features for me.
 
-### 8.2.
+### 5.2.
 
 Place **"bpr"** and **"test_bpr"** folders from Version-2 of the [Dataset](https://www.kaggle.com/datasets/sirius81/otto-bprembedding) by [sirius](https://www.kaggle.com/sirius81) into the "matrices" folder of the repository.
 
@@ -209,7 +201,7 @@ Directory structure should look like this now:
 
 <img width="456" alt="Screenshot 2023-02-01 at 15 33 00" src="https://user-images.githubusercontent.com/41992707/216071761-1666a571-56b1-4198-b328-ee1e21edc056.png">
 
-### 8.3.
+### 5.3.
 
 Run Jupyter Notebook to prepare [sirius](https://www.kaggle.com/sirius81) features for further use:
 ```
@@ -219,9 +211,9 @@ As a result, some output files will be added to the "matrices" folder:
 
 <img width="341" alt="Screenshot 2023-02-01 at 17 04 30" src="https://user-images.githubusercontent.com/41992707/216096968-f95d68fa-e6f4-44b4-a87b-e14eaf68af16.png">
 
-## 9. Train models for .599 submission
+## 6. Train models for .599 submission
 
-### 9.1. Train models
+### 6.1. Train models
 
 **(!) You already have trained models files in "models_new" folder if you don't want to re-train them. Otherwise:**
 
@@ -237,7 +229,7 @@ As a result, output files will be placed into the "models_new" folder of the rep
 
 (file names could contain slightly different numbers)
 
-### 9.2. Prepare raw predictions and submission
+### 6.2. Prepare raw predictions and submission
 
 Run Jupyter Notebook
 ```
@@ -258,7 +250,7 @@ alvor_oof_carts_orders_v2.parquet
 ```
 
 
-### 10. Acknowledgements
+### 7. Acknowledgements
 
 In my model I use code of some public Kaggle Notebooks. I am grateful to the authors of these notebooks for their work and for making it public:
 
