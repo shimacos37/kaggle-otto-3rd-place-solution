@@ -1,0 +1,3 @@
+
+sh bin/exp100_067_gkf_train_cart_order_binary_5split.sh
+sh bin/exp105_069_without_w2b_bpr_candidats.sh

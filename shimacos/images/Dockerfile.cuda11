@@ -1,0 +1,71 @@
+FROM rapidsai/rapidsai:21.10-cuda11.0-runtime-ubuntu18.04-py3.7
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+
+RUN apt update \
+    && apt install --yes  --no-install-recommends \
+    cuda-toolkit-11-0 \
+    gcc \
+    ssh-client \
+    software-properties-common \
+    libopenmpi-dev \
+    && add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt update \
+    && apt install --only-upgrade -y libstdc++6 \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/local/cuda/bin/nvcc /opt/conda/envs/rapids/bin/ \
+    && ln -s /usr/local/cuda/bin/nvcc.profile /opt/conda/envs/rapids/bin/ \
+    && ln -s  /usr/local/cuda/nvvm /opt/conda/envs/rapids/
+
+ENV CPATH=/usr/local/cuda-11.0/targets/x86_64-linux/include:$CPATH
+ENV TORCH_CUDA_ARCH_LIST="Kepler;Kepler+Tesla;Maxwell;Maxwell+Tegra;Pascal;Volta;Turing"
+
+RUN  source activate rapids \
+    && pip install -f https://download.pytorch.org/whl/torch_stable.html \
+    opencv-python \
+    albumentations \
+    tqdm \
+    joblib \
+    pytorch-lightning \
+    hydra-core \
+    hydra_colorlog \
+    google-cloud-storage \
+    seaborn \
+    plotly \
+    h5py \
+    wandb \
+    black \
+    mypy \
+    lightgbm \
+    flake8 \
+    timm \
+    xgboost \
+    pydicom \
+    threadpoolctl \
+    kaggle \
+    catboost \
+    pandas-gbq \
+    gensim \
+    torch==1.11.0+cu113 \
+    torchvision==0.12.0+cu113 \
+    implicit \
+    polars 
+
+RUN source activate rapids \
+    && pip install -f https://data.pyg.org/whl/torch-1.11.0+cu113.html \
+    pyg-lib \
+    torch-scatter \
+    torch-sparse \
+    torch-cluster \
+    torch-spline-conv \
+    torch-geometric  \
+    protobuf==3.20.*
+
+
+
+WORKDIR /root/workdir

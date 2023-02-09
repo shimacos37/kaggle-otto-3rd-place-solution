@@ -1,0 +1,45 @@
+version: "2.0"
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./images/Dockerfile.cuda11
+    image: kaggle:cuda11
+    network_mode: bridge
+    init: true
+    working_dir: /root/workdir
+    shm_size: 236gb
+    volumes:
+      - $PWD:/root/workdir/
+      - $HOME/.config:/root/.config
+      - $HOME/.cache:/root/.cache
+      - $HOME/.netrc:/root/.netrc
+      - $HOME/.kaggle:/root/.kaggle
+    environment:
+      - GOOGLE_CLOUD_PROJECT=[your gcp project]
+      - SLURM_LOCALID=0
+      - HYDRA_FULL_ERROR=1
+      - PWD=/root/workdir
+      - DISABLE_JUPYTER=true
+  gpu:
+    build:
+      context: .
+      dockerfile: ./images/Dockerfile.cuda11
+    image: kaggle:cuda11
+    network_mode: bridge
+    init: true
+    working_dir: /root/workdir
+    shm_size: 236gb
+    runtime: nvidia
+    volumes:
+      - $PWD:/root/workdir/
+      - $HOME/.config:/root/.config
+      - $HOME/.cache:/root/.cache
+      - $HOME/.netrc:/root/.netrc
+      - $HOME/.kaggle:/root/.kaggle
+    environment:
+      - GOOGLE_CLOUD_PROJECT=[your gcp project]
+      - SLURM_LOCALID=0
+      - HYDRA_FULL_ERROR=1
+      - PWD=/root/workdir
+      - DISABLE_JUPYTER=true

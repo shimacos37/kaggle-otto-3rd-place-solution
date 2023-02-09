@@ -1,0 +1,61 @@
+version: "001"
+
+env:
+  project_id:
+  dataset_id: otto
+
+sql_name: train_preprocess
+preprocess_all: False
+
+params:
+  project_id: ${env.project_id}
+  dataset_id: ${env.dataset_id}_${version}
+  sql_name: ${sql_name}
+  split_ts: "2022-08-21T22:00:00"
+  start_ts: "2022-08-14T22:00:00"
+  end_ts: "2022-09-04T22:00:00"
+  minutes: [1, 15, 30]
+  hours: [1, 3, 5, 12, 24, 48, 72]
+  days: [1, 3, 5, 7, 14]
+
+# before create user item pair
+pipeline1:
+  preprocess_003:
+    - valid_session_ids
+    - test_session_ids
+  feature_006:
+    - session_feature
+    - session_aid_feature_v2
+    - session_aid_feature_v3
+    - aid_hour_feature
+    - latest_user_items_feature
+    - aid_repeat_feature
+    - aid_feature
+  candidates_018:
+    - covisit_items_1hour
+    - covisit_items_1days
+    - covisit_bigram_v2
+    - cart_order2cart_order_covisit_1hour
+    - click2click_covisit_1hour
+    - covisit_items_window_size5_v3
+    - covisit_items_window_size5_v4
+    - word2vec_min_count5_window5_sg
+  test_result:
+    - convert_makotu_v3_data
+    - convert_makotu_v4_data
+
+# after create user item pair
+pipeline2:
+  feature_006:
+    - session_aid_vector_feature_067_bpr
+    - session_aid_vector_feature_067_last
+    - session_aid_vector_feature_067_last_order
+    - session_aid_vector_feature_067_last_cart
+
+hydra:
+  # hydraで自動的にログファイルが生成されるのを防ぐ
+  output_subdir: null
+  job:
+    chdir: False
+  run:
+    dir: ${oc.env:PWD}
