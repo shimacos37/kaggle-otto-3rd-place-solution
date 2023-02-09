@@ -69,7 +69,7 @@ def main(config: DictConfig) -> None:
             ],
             if_exists=if_exists,
         )
-    gt_df = pl.read_parquet("./input/chris/train/test_labels.parquet")
+    gt_df = pl.read_parquet("./input/train/test_labels.parquet")
     click_df = (
         gt_df.filter(pl.col("type") == "clicks")
         .rename({"ground_truth": "click_labels"})
