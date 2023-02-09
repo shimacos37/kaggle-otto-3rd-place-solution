@@ -31,7 +31,7 @@ cm_30_30_012_012_0_v21m_0.pqt
 cm_30_30_012_012_3_v31m_0.pqt
 cm_30_30_012_12_0_v51ha_0.pqt
 ```
-from the **Version-10** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices) into the **“alvor/matrices”** folder of the repository
+from the **Version-10** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices/versions/10) into the **“alvor/matrices”** folder of the repository
 
 (If you want to reproduce these files, you need to run **Version-12** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/co-matrices-maker))
 
@@ -45,7 +45,7 @@ cm_30_30_012_012_0_v21m_1.pqt
 cm_30_30_012_012_3_v31m_1.pqt
 cm_30_30_012_12_0_v51ha_1.pqt
 ```
-from the **Version-11** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices) into the **“alvor/matrices”** folder of the repository
+from the **Version-11** of the [Dataset](https://www.kaggle.com/datasets/allvor/ottomatrices/versions/11) into the **“alvor/matrices”** folder of the repository
 
 (If you want to reproduce these files, you need to run **Version-13** of the [Kaggle notebook](https://www.kaggle.com/code/allvor/co-matrices-maker))
 
