@@ -1,10 +1,5 @@
 # Alvor's part of the OTTO Kaggle Competition solution. <br> 0.599 Public LB Model
 
-
-<img width="956" alt="Screenshot 2023-02-08 at 18 33 02" src="https://user-images.githubusercontent.com/41992707/217607600-c35eb73f-46e6-4f6f-bf59-5c576fecd5ae.png">
-
-<img width="443" alt="Screenshot 2023-02-08 at 18 33 59" src="https://user-images.githubusercontent.com/41992707/217607743-d32fa8a0-a926-4ce1-98a4-a3ff016b9367.png">
-
 ## 1. Get input data.
 
 ### 1.1. Get Competition Data. <br>Place three public Kaggle Datasets into the **"alvor/input"** folder of current repository:
