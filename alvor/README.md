@@ -112,9 +112,9 @@ FE_aids2sessions_1.pqt
 
 Run the Jupyter Notebook from the current repository:
 ```
-make_train_df.ipynb
+alvor/make_train_df.ipynb
 ``` 
-As a result, the output files will be placed into the "feats" folder of the repository:
+As a result, the output files will be placed into the "alvor/feats" folder of the repository:
 ```
 feats_0_batch_0.pqt
 feats_0_batch_0_small.pqt
@@ -137,14 +137,14 @@ Now the repository's directory structure should look like this:
 
 ### 4.1. Train models
 
-**(!) You already have trained models files in "models" folder if you don't want to re-train them. Otherwise:**
+**(!) You already have trained models files in "alvor/models" folder if you don't want to re-train them. Otherwise:**
 
 Run two Jupyter notebooks from current repository: 
 ```
-train_model_clicks.ipynb
-train_model_carts_orders.ipynb
+alvor/train_model_clicks.ipynb
+alvor/train_model_carts_orders.ipynb
 ``` 
-As a result, output files will be placed into the "models" folder of the repository.
+As a result, output files will be placed into the **"alvor/models"** folder of the repository.
 <br> At this moment the "models" folder should look like this:
 
 <img width="486" alt="Screenshot 2023-02-01 at 15 03 55" src="https://user-images.githubusercontent.com/41992707/216064455-5342551b-6a4e-41ef-8b05-5f5c16e29b0d.png">
@@ -155,7 +155,7 @@ As a result, output files will be placed into the "models" folder of the reposit
 
 Run Jupyter Notebook
 ```
-make_submission.ipynb 
+alvor/make_submission.ipynb 
 ```
 to get submission which scores 0.596 on Public LB:
 ```
@@ -188,9 +188,9 @@ and he was so kind to calculate those features for me.
 
 ### 5.2.
 
-Place **"bpr"** and **"test_bpr"** folders from Version-2 of the [Dataset](https://www.kaggle.com/datasets/sirius81/otto-bprembedding) by [sirius](https://www.kaggle.com/sirius81) into the "matrices" folder of the repository.
+Place **"bpr"** and **"test_bpr"** folders from Version-2 of the [Dataset](https://www.kaggle.com/datasets/sirius81/otto-bprembedding) by [sirius](https://www.kaggle.com/sirius81) into the "alvor/matrices" folder of the repository.
 
-Place **"alvor_bigram"** and **"test_alvor_bigram"** folders from Version-4 of the [Dataset](https://www.kaggle.com/datasets/sirius81/otto-features) by [sirius](https://www.kaggle.com/sirius81) into the "matrices" folder of the repository.
+Place **"alvor_bigram"** and **"test_alvor_bigram"** folders from Version-4 of the [Dataset](https://www.kaggle.com/datasets/sirius81/otto-features) by [sirius](https://www.kaggle.com/sirius81) into the "alvor/matrices" folder of the repository.
 
 Directory structure should look like this now:
 
@@ -200,9 +200,9 @@ Directory structure should look like this now:
 
 Run Jupyter Notebook to prepare [sirius](https://www.kaggle.com/sirius81) features for further use:
 ```
-handle_sirius_features.ipynb
+alvor/handle_sirius_features.ipynb
 ```
-As a result, some output files will be added to the "matrices" folder:
+As a result, some output files will be added to the "alvor/matrices" folder:
 
 <img width="341" alt="Screenshot 2023-02-01 at 17 04 30" src="https://user-images.githubusercontent.com/41992707/216096968-f95d68fa-e6f4-44b4-a87b-e14eaf68af16.png">
 
@@ -210,14 +210,14 @@ As a result, some output files will be added to the "matrices" folder:
 
 ### 6.1. Train models
 
-**(!) You already have trained models files in "models_new" folder if you don't want to re-train them. Otherwise:**
+**(!) You already have trained models files in "alvor/models_new" folder if you don't want to re-train them. Otherwise:**
 
 Run two Jupyter notebooks from current repository: 
 ```
-train_model_clicks_two.ipynb
-train_model_carts_orders_two.ipynb
+alvor/train_model_clicks_two.ipynb
+alvor/train_model_carts_orders_two.ipynb
 ``` 
-As a result, output files will be placed into the "models_new" folder of the repository.
+As a result, output files will be placed into the "alvor/models_new" folder of the repository.
 <br> At this moment the "models_new" folder should look like this:
 
 <img width="447" alt="Screenshot 2023-02-01 at 17 32 58" src="https://user-images.githubusercontent.com/41992707/216104290-3ab1f09f-9770-4ec6-a98a-f459d12e4a75.png">
@@ -228,7 +228,7 @@ As a result, output files will be placed into the "models_new" folder of the rep
 
 Run Jupyter Notebook
 ```
-make_submission_two.ipynb 
+alvor/make_submission_two.ipynb 
 ```
 to get submission which scores 0.599 on Public LB:
 ```
