@@ -144,7 +144,7 @@ Run two Jupyter notebooks from current repository:
 alvor/train_model_clicks.ipynb
 alvor/train_model_carts_orders.ipynb
 ``` 
-As a result, output files will be placed into the **"alvor/models"** folder of the repository.
+As a result, output files will be placed into the "alvor/models" folder of the repository.
 <br> At this moment the "models" folder should look like this:
 
 <img width="486" alt="Screenshot 2023-02-01 at 15 03 55" src="https://user-images.githubusercontent.com/41992707/216064455-5342551b-6a4e-41ef-8b05-5f5c16e29b0d.png">
